@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Básica</title>
+
     <!-- CSS Bootstrap 5.3.8 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <!-- Bootstrap Icons 1.13.1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <!-- capa principal -->
     <div class="container mt-3">
@@ -29,22 +32,25 @@
                 <!-- Valor 1: -->
                 <div class="input-group mb-3">
                     <span class="input-group-text">Valor 1:</span>
-                    <input type="number" class="form-control" placeholder="0.00" step="0.01" name="valor1"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
+                    <input type="number" class="form-control" step="0.01" placeholder="0.00" name="valor1"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
+                    <small class="text-muted">Introduzca el primer valor</small>
                 </div>
 
                 <!-- Valor 2: -->
-                 
-                <!-- Valor 1: -->
                 <div class="input-group mb-3">
                     <span class="input-group-text">Valor 2:</span>
-                    <input type="number" class="form-control" placeholder="0.00" step="0.01" name="valor2"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
+                    <input type="number" class="form-control" step="0.01" placeholder="0.00" name="valor2"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
+                    <small class="text-muted">Introduzca el segundo valor</small>
                 </div>
                 
                 <!-- Botones de acción -->
-                 <div class="btn-group" role="group">
+                <div class="btn-group" role="group">
                     <button type=reset class="btn btn-secondary">Limpiar</button>
-                    <button type=submit class="btn btn-warning" formaction="sumar.model.php">Calcular</button> <!-- En formaction le decimos que archivo tiene que coger para hacer la operacion -->
-                 </div>
+                    <button type=submit class="btn btn-primary" formaction="sumar.php">Sumar</button> <!-- En formaction le decimos que archivo tiene que coger para hacer la operacion (el controlador) -->
+                    <button type=submit class="btn btn-primary" formaction="restar.php">Restar</button>
+                    <button type=submit class="btn btn-primary" formaction="producto.php">Producto</button>
+                    <button type=submit class="btn btn-primary" formaction="division.php">División</button>
+                </div>
             </form>
 
         </main>
@@ -62,3 +68,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+<!-- 
+
+    Clases de botones en bootstrap:
+    btn-primary: botón azul para acciones principales
+    btn-secondary: gris para acciones secundarias
+    btn-success: verde para indicar éxito
+    btn-danger: rojo para advertencias o errores
+    btn-warning: amarillo para precauciones
+    btn-info: celeste para información adicional
+    btn-light: fondo claro
+    btn-dark: fondo oscuro
+    btn-link: se ve como un enlace
+
+-->

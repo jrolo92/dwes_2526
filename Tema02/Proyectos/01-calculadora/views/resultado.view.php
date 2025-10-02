@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Básica</title>
+
     <!-- CSS Bootstrap 5.3.8 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
     <!-- Bootstrap Icons 1.13.1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <!-- capa principal -->
     <div class="container mt-3">
@@ -25,29 +28,30 @@
         <!-- Contenido principal -->
         <main>
             <!-- Formulario de la calculadora básica -->
-            <form>
+            <form method="post">
 
                 <!-- Valor 1: -->
                 <div class="input-group mb-3">
                     <span class="input-group-text">Valor 1:</span>
-                    <input type="number" class="form-control" value="<?= $valor1 ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv que es $valor1 que hemos recogido en el modelo -->
+                    <input type="number" class="form-control" value="<?= $valor1 ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv $valor1 que hemos recogido en el modelo -->
                 </div>
 
                 <!-- Valor 2: -->
                 <div class="input-group mb-3">
                     <span class="input-group-text">Valor 2:</span>
-                    <input type="number" class="form-control" value="<?= $valor2 ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv que es $valor1 que hemos recogido en el modelo -->
+                    <input type="number" class="form-control" value="<?= $valor2 ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv  $valor2 que hemos recogido en el modelo -->
                 </div>
 
                 <!-- Resultado: -->
                 <div class="input-group mb-3">
                     <span class="input-group-text"><?= $operacion ?></span>
-                    <input type="number" class="form-control" value="<?= $resultado ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv que es $valor1 que hemos recogido en el modelo -->
+                    <input type="number" class="form-control" value="<?= $resultado ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv $resultado que hemos recogido en el modelo -->
                 </div>
                 
                 <!-- Botones de acción -->
                  <div class="btn-group" role="group">
-                    <a class="btn btn-primary" href="index.php" role="button">Nueva operación</a>
+                    <a class="btn btn-primary" href="index.php" role="button">Volver</a>
+
                  </div>
             </form>
 

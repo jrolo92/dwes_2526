@@ -1,7 +1,7 @@
 <?php
     /*  
         Modelo: sumar.model.php
-        Descripción: Realiza la suma de dos valores.
+        Descripción: Realiza la suma de los dos valores que se introduzcan en el formulario.
         Autor: Javier Rodríguez López  
         Fecha: 01/10/2025
     */
