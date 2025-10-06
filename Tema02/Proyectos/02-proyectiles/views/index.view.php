@@ -32,14 +32,14 @@
                 <!-- Velocidad inicial: -->
                 <div class="mb-3">
                     <label class="form-label" for="velocidad_inicial">Velocidad inicial (m/s):</label>
-                    <input type="number" class="form-control" step="1" placeholder="0" aria-describedBy="helId name="velocidad_inicial"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
+                    <input type="number" class="form-control" step="1" placeholder="0" aria-describedBy="helpId" name="velocidad_inicial"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
                     <small id="helpId" class="text-muted">Introduzca el primer valor</small>
                 </div>
 
                 <!-- Angulo de lanzamiento: -->
                 <div class="mb-3">
                     <label class="form-label" for="angulo_lanzamiento">Angulo de Lanzamiento:</label>
-                    <input type="number" class="form-control" step="1" placeholder="0" aria-describedBy="helId name="angulo_lanzamiento"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
+                    <input type="number" class="form-control" step="1" placeholder="0" aria-describedBy="helpId" name="angulo_lanzamiento"> <!-- El valor name es el mas importante ya que con el vamos a rescatar el valor que se le haya asignado -->
                     <small id="helpId" class="text-muted">Ángulo en grados</small>
                 </div>
                 

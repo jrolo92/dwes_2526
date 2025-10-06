@@ -19,10 +19,10 @@
         <!-- Cabecera del documento -->
         <header class="pb-3 mb-4 border-bottom">
             <!-- Icono -->
-            <i class="bi bi-calculator"></i>
+            <i class="bi bi-rocket-takeoff-fill"></i>
             <!-- Esta etiqueta va a facilitar la búsqueda de la pag en los buscadores, mejorando el SEO -->
             <span class="fs-6">Proyecto 2.2 - Lanzamiento de Proyectiles</span>
-            <p>Resultado</p> 
+            <h2>Resultado</h2>
         </header>
 
         <!-- Contenido principal -->
@@ -30,66 +30,70 @@
             <!-- Formulario de la calculadora básica -->
             <form method="post">
 
-                
-#	First	Last	Handle
-1	Mark	Otto	@mdo
-2	Jacob	Thornton	@fat
-3	John	Doe	@social
+              <!-- Tabla 1: Valores Iniciales -->
+              <div class="container">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Valores iniciales:  </th>
+                      <th>  </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Velocidad inicial:  </td>
+                      <td><?= number_format($valor1, 2) . " m/s" ?></td>
+                    </tr>
+                    <tr>
+                      <td>Ángulo inclinación (en º):  </td>
+                      <td><?= $valor3 . " º" ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>John</td>
-      <td>Doe</td>
-      <td>@social</td>
-    </tr>
-  </tbody>
-</table>
-
-                <!-- Valor 1: -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Valor 1:</span>
-                    <input type="number" class="form-control" value="<?= $valor1 ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv $valor1 que hemos recogido en el modelo -->
-                </div>
-
-                <!-- Valor 2: -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Valor 2:</span>
-                    <input type="number" class="form-control" value="<?= $valor2 ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv  $valor2 que hemos recogido en el modelo -->
-                </div>
-
-                <!-- Resultado: -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text"><?= $operacion ?></span>
-                    <input type="number" class="form-control" value="<?= $resultado ?>" step="0.01"> <!-- En el parámetro value vamos a meter la vv $resultado que hemos recogido en el modelo -->
-                </div>
-                
-                <!-- Botones de acción -->
-                 <div class="btn-group" role="group">
-                    <a class="btn btn-primary" href="index.php" role="button">Volver</a>
-                 </div>
-            </form>
+              <!-- Tabla 2: Resultados -->
+              <div class="container">    
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Resultados: </th>
+                      <th>  </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ángulo (en radianes):  </td>
+                      <td><?= number_format($valor2, 5) . " rads"?></td>
+                    </tr>          
+                    <tr>
+                      <td>Velocidad inicial X:  </td>
+                      <td><?= number_format($vox, 2) . " m/s"?></td>
+                    </tr>
+                    <tr>
+                      <td>Velocidad inicial Y:  </td>
+                      <td><?= number_format($voy, 2) . " m/s"?></td>
+                    </tr>
+                    <tr>
+                      <td>Alcance Máximo del Proyectil:  </td>
+                      <td><?= number_format($xmax, 2) . " m"?></td>
+                    </tr>
+                    <tr>
+                      <td>Tiempo de vuelo:  </td>
+                      <td><?= number_format($tiempo, 2) . " s" ?></td>
+                    </tr>
+                    <tr>
+                      <td>Altura Máxima del Proyectil:  </td>
+                      <td><?= number_format($ymax, 2) . " m"?></td>
+                    </tr>       
+                  </tbody>
+                </table>
+              </div>
+                <!-- Botones de acción  -->
+              <div class="btn-group" role="group">
+                <a class="btn btn-primary" href="index.php" role="button">Volver</a>
+              </div> 
+            </form> 
 
         </main>
 

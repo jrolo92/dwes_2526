@@ -16,11 +16,12 @@
     // Recoger los valores del formulario (los vamos a guardar en la variable $valorX)
     $valor1 = $_POST['velocidad_inicial']; // Este indice va a estar indicado en la etiqueta name del formulario (en la vista).
     $valor2 = deg2rad($_POST['angulo_lanzamiento']); // Los vamos a pasar a radianes.
+    $valor3 = $_POST['angulo_lanzamiento']; // Queremos conservar también el angulo en grados para mostrarlo.
 
     //Realizar la suma de los dos valores
     $vox = $valor1 * cos($valor2); // Velocidad inicial horizontal
     $voy = $valor1 * sin($valor2); // Velocidad inicial vertical
-    $xmax = (pow($valor1, 2) * sin(2 * $valor2)) / $G; // Distancia máxima alcanzada por un proyectil
+    $xmax = (pow($valor1, 2) * sin(2 * $valor2)) / $G; // Alcance máximo alcanzado por un proyectil
     $ymax = (pow($valor1, 2) * pow(sin($valor2), 2)) / (2 * $G); // Altura máxima
     $tiempo = (2 * $valor1 * sin($valor2)) / $G; // Tiempo total de vuelo
 
