@@ -3,7 +3,7 @@
 // ejemplo 3.9: Uso del FOR. Mostrar los números del 1 al 100, por columnas, de forma que queden 10 números por columna.
 // Esto sería el modelo
 $numeros = 10;
-$columnas = 10;
+
 
 
 ?>
@@ -30,57 +30,39 @@ $columnas = 10;
         <!-- Cabecera del documento -->
         <header class="pb-3 mb-4 border-bottom">
             <!-- Icono -->
-            <i class="bi bi-stack"></i>
+            <i class="bi bi-grid-3x3"></i>
             <!-- Esta etiqueta va a facilitar la búsqueda de la pag en los buscadores, mejorando el SEO -->
-            <span class="fs-6">Tabla números del 1 al 100</span>
+            <span class="fs-6">Tabla de Multiplicar</span>
         </header>
 
         <!-- Contenido principal -->
         <main>
             <!-- Creamos la tabla  -->
             <table class="table">
-
+                <thead>
+                    <tr>
+                        <th></th>       
+                        <?php
+                            for ($i=0; $i <=$numeros ; $i++){
+                                echo "<th>$i</th>";
+                            }
+                        ?>
+                    </tr>
+                </thead>
                 <tbody>
-                    <?php for ($i = 1; $i <= $numeros; $i++): ?>
-                        <thead>
-                            <tr>
-                                <th> </th>
-                                <th scope="col"><?php $i ?></th>
-                            </tr>
-                        </thead>
-                        <!-- Detecta el primero de la fila  -->
-                        <?php if (($i - 1) % $columnas == 0): ?>
-                            <tr>
-                            <?php endif; ?>
-                            <!-- Si no es el primero muestra el número  -->
-                            <td> <?= $i ?> </td>
-                            <!-- Detecta final de cada fila  -->
-                            <?php if ($i % $columnas == 0): ?>
-                            </tr>
-                        <?php endif; ?>
-                    <?php endfor; ?>
+                    <?php
+                        for ($i=0;$i<=$numeros; $i ++){
+                            echo "<tr>"; //Nueva fila
+                            echo "<th>$i</th>"; // Columna principal en negrita porque usamos <th>
+                            for ($j=0; $j<=$numeros; $j ++){
+                                $multiplicacion = $i * $j;          // Multiplicamos fila * columna
+                                echo "<td>$multiplicacion</td>";    // Lo mostramos
+                            }
+                            echo "</tr>"; // CErramos fila
+                        }
+                    ?>
                 </tbody>
             </table>
-
-
-            <!-- <table class="table"> 
-                <tbody>
-                    <?php for ($i = 1; $i <= $numeros; $i++): ?>
-                         Detecta el primero de la fila  
-                        <?php if (($i - 1) % $columnas == 0): ?>                
-                            <tr>
-                        <?php endif; ?>
-                        Si no es el primero muestra el número  
-                        <td> <?= $i ?> </td>
-                         Detecta final de cada fila  
-                         <?php if ($i % $columnas == 0): ?>
-                            </tr>
-                        <?php endif; ?>
-                    <?php endfor; ?>
-                </tbody>
-            </table>-->
-
-
         </main>
 
         <!-- Pie de página -->
