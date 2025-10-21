@@ -78,6 +78,8 @@
         'genero' => 'Ciencia ficción / Aventura',
         'precio' => 12.50
     ]
+
 ];
+
 
 ?>
