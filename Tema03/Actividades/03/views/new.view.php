@@ -50,7 +50,7 @@
                  </div>
                  <div class="mb-3">
                     <label for="precio" class="form-label">Precio:</label>
-                    <input type="number" class="form-control" id="precio" name="precio" step="0.01" required/>
+                    <input type="float" class="form-control" id="precio" name="precio" step="0.01" required/>
                  </div>
 
                 <!-- Botones de acción  -->

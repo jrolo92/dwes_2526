@@ -10,7 +10,7 @@
     // Librerías
     require_once "libs/functions.php";
 
-    //Modelo (no es necesario)
+    //Modelo 
     require_once 'models/create.model.php';
         
     //Vista
