@@ -1,5 +1,5 @@
 <?php
-/*
+    /*
         Librería: functions.php
         Descripción: Funciones reutilizables para la gestión de libros.
         Autor: Javier Rodríguez
@@ -106,4 +106,9 @@ function get_indice_libro_por_id($libros, $id)
     return null; // Devuelve null cuando el id que le pasamos a la función no existe
 }
 
-
+// Funcion ordenar arrays por un criterio:
+function ordenar($array, $criterio){
+    $columna = array_column($array, $criterio);               // Extraemos la columna por la que vamos a ordenar en función del criterio.
+    array_multisort($array, SORT_ASC, $columna);              // Y lo ordenamos usando la funcion para arrays multidimensionales.
+    return $array;
+}
