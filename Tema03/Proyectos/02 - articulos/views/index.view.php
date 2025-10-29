@@ -15,6 +15,12 @@
 
         <!-- Contenido principal -->
         <main>
+            <h1>Proyecto 3.2 - Gestión de Artículos</h1>
+            <p>Gestión Tabla Artículos</p>
+
+            <!--Barra de navegación -->
+            <?php require_once "partials/menu.partial.php"; ?>
+
             <table class="table">
                 <thead>
                     <tr>
@@ -22,20 +28,20 @@
                         <th scope="col">Descripción</th>
                         <th scope="col">Modelo</th>
                         <th scope="col">Categoría</th>
-                        <th scope="col">Unidades</th>
-                        <th scope="col" class= "text-end">Precio</th>
+                        <th scope="col" class="text-end">Unidades</th>
+                        <th scope="col" class="text-end">Precio</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($articulos as $articulo): ?>
-                    <tr>
-                        <td class="text-end"><?=$articulo['id']?></td>
-                        <td><?=$articulo['descripcion']?></td>
-                        <td><?=$articulo['modelo']?></td>
-                        <td><?=categoriaNombre($categorias, $articulo['categoria_id']);?></td>
-                        <td><?=$articulo['unidades']?></td>
-                        <td class="text-end"><?=$articulo['precio']?></td>
-                    </tr>
+                        <tr>
+                            <td class="text-end"><?= $articulo['id'] ?></td>
+                            <td><?= $articulo['descripcion'] ?></td>
+                            <td><?= $articulo['modelo'] ?></td>
+                            <td><?= categoriaNombre($categorias, $articulo['categoria_id']); ?></td>
+                            <td class="text-end"><?= $articulo['unidades'] ?></td>
+                            <td class="text-end"><?= number_format($articulo['precio'], 2) ?> €</td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>

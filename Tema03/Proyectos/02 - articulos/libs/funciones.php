@@ -91,13 +91,12 @@
     }
 
     // funcion para obtener el nombre de la categoría en funcion de su id
-    function categoriaNombre($categorias, $categoria_id){
-        $categoriaNombre = "";
-        foreach($categorias as $categoria){
-            if ($categorias[$categoria_id]  == $categoria_id){
+    function categoriaNombre($categorias, $categoria_id) {
+        foreach ($categorias as $categoria) {
+            if ($categoria['id'] == $categoria_id) {
                 return $categoria['nombre'];
             }
         }
-        return "Categoría Desconocida";
+        return "Categoría desconocida";
     }
 ?>
