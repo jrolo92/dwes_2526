@@ -53,7 +53,7 @@
                                     <i class="bi bi-pencil"></i>
                                 </a>
                                 <!-- Botón de mostrar-->
-                                <a href="edit.php?id=<?= $libro['id']?>" class="btn btn-info btn-sm" title="Mostrar">
+                                <a href="show.php?id=<?= $libro['id']?>" class="btn btn-info btn-sm" title="Mostrar">
                                 <i class="bi bi-eye-fill"></i>
                                 </a>                                 
 
