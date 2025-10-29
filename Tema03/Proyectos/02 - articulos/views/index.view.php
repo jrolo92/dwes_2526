@@ -16,7 +16,7 @@
         <!-- Contenido principal -->
         <main>
             <h1>Proyecto 3.2 - Gestión de Artículos</h1>
-            <p>Gestión Tabla Artículos</p>
+            <small>Tabla Artículos</small>
 
             <!--Barra de navegación -->
             <?php require_once "partials/menu.partial.php"; ?>
@@ -30,6 +30,7 @@
                         <th scope="col">Categoría</th>
                         <th scope="col" class="text-end">Unidades</th>
                         <th scope="col" class="text-end">Precio</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,12 @@
                             <td><?= categoriaNombre($categorias, $articulo['categoria_id']); ?></td>
                             <td class="text-end"><?= $articulo['unidades'] ?></td>
                             <td class="text-end"><?= number_format($articulo['precio'], 2) ?> €</td>
+                            <td>
+                                <!-- Botón de editar -->
+                                <a href="edit.php?id=<?= $articulo['id']?>" class="btn btn-primary btn-sm" title="Editar">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

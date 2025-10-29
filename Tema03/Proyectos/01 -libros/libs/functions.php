@@ -1,4 +1,4 @@
-<?php
+                    <?php
     /*
         Librería: functions.php
         Descripción: Funciones reutilizables para la gestión de libros.

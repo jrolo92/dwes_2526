@@ -3,7 +3,7 @@
         return [
             [
                 'id' => 0,
-                'nombre' => 'Eléctronica'
+                'nombre' => 'Electrónica'
             ],
             [
                 'id' => 1,
@@ -91,12 +91,21 @@
     }
 
     // funcion para obtener el nombre de la categoría en funcion de su id
-    function categoriaNombre($categorias, $categoria_id) {
+    function categoriaNombre($categorias, $articulo_id) {
         foreach ($categorias as $categoria) {
-            if ($categoria['id'] == $categoria_id) {
+            if ((int)$categoria['id'] == $articulo_id) {
                 return $categoria['nombre'];
             }
         }
         return "Categoría desconocida";
+    }
+
+    function get_indice_articulo_por_id($articulos, $id){
+            foreach ($articulos as $indice => $articulo){
+                if ($articulo['id'] == $id){
+                    return $indice; 
+                }
+            }
+            return null;
     }
 ?>
