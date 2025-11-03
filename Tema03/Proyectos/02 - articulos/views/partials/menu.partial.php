@@ -14,8 +14,12 @@
                                     Ordenar
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="order.php?criterio=id">Id</a></li>
+                                    <li><a class="dropdown-item" href="order.php?criterio=descripcion">Descripción</a></li>
+                                    <li><a class="dropdown-item" href="order.php?criterio=modelo">Modelo</a></li>
+                                    <li><a class="dropdown-item" href="order.php?criterio=categoria_id">Categoría</a></li>
+                                    <li><a class="dropdown-item" href="order.php?criterio=unidades">Unidades</a></li>
+                                    <li><a class="dropdown-item" href="order.php?criterio=precio">Precio</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -23,9 +27,9 @@
                                 </ul>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        <form class="d-flex" role="search" method="GET" action= "search.php">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="expresion" />
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
                         </form>
                     </div>
                 </div>

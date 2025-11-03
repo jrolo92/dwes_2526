@@ -3,9 +3,8 @@
     require_once "libs/funciones.php";
 
     // Cargamos modelo:
-    require_once "models/new.model.php";
-   
+    require_once "models/update.model.php";
 
     // Cargamos vista:
-    require_once "views/new.view.php";
+    require_once "views/index.view.php";
 ?>
