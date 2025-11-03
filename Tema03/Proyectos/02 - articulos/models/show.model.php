@@ -11,7 +11,6 @@ $articulos = get_tabla_articulos();
 $categorias = get_tabla_categorias();
 
 // Obtener el índice del libro a eliminar partiendo del id
-// Eliminar el libro del array si se encuentra
 
 $indice = get_indice_articulo_por_id($articulos, $id_mostrar);
 
