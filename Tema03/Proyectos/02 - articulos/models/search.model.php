@@ -32,5 +32,8 @@
         }
         $articulos = $aux;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 31c571e077d4a534a072be3aa156c50eab7eceba
 ?>

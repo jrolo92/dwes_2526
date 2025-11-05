@@ -21,6 +21,8 @@
             <span class="fs-6">Plantilla Básica Bootstrap 5.3.8</span> 
         </header>
 
+        <!-- Barra de NAvegacion (NavBar) -->
+
         <!-- Contenido principal -->
         <main>
 
