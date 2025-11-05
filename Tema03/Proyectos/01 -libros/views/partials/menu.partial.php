@@ -32,7 +32,7 @@
                     </ul>
                     <form class="d-flex" role="search" method="GET" action="search.php">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="expresion" />
-                        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>

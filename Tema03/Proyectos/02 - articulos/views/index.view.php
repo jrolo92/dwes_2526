@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <?php require_once "partials/head.partial.php"; ?>
+    <?php require_once "layouts/head.layout.php"; ?>
     <title>Gestión de Artículos</title>
 </head>
 
@@ -43,10 +43,19 @@
                             <td class="text-end"><?= $articulo['unidades'] ?></td>
                             <td class="text-end"><?= number_format($articulo['precio'], 2) ?> €</td>
                             <td>
+                                <!-- Acciones: Siempre vamos a enviar enlaces de tipo Get dinámico con el id del articulo con el que vamos a trabajar -->
+                                <!-- Boton de borrar  -->
+                                <a href="delete.php?id=<?= $articulo['id']?>" class= "btn btn-danger btn-sm" title="Eliminar" onclick="return confirm('Confirmar eliminación de artículo')">
+                                    <i class="bi bi-trash3"></i>
+                                </a>
                                 <!-- Botón de editar -->
                                 <a href="edit.php?id=<?= $articulo['id']?>" class="btn btn-primary btn-sm" title="Editar">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
+                                <!-- Botón mostrar -->
+                                <a href="show.php?id=<?= $articulo['id']?>" class="btn btn-info btn-sm" title="Mostrar">
+                                <i class="bi bi-eye-fill"></i>
+                                </a>  
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -59,7 +68,7 @@
     </div>
 
     <!-- JavaScript Bootstrap 5.3.8 -->
-    <?php require_once "partials/jsbootstrap.partial.php"; ?>
+    <?php require_once "layouts/jsbootstrap.layout.php"; ?>
 </body>
 
 </html>

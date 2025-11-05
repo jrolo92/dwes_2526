@@ -102,10 +102,11 @@
 
     function get_indice_articulo_por_id($articulos, $id){
             foreach ($articulos as $indice => $articulo){
-                if ($articulo['id'] == $id){
+                if ((int)$articulo['id'] == (int)$id){
                     return $indice; 
                 }
             }
             return null;
     }
+
 ?>

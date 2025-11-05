@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <?php require_once "partials/head.partial.php"; ?>
+    <?php require_once "layouts/head.layout.php"; ?>
     <title>Gestión de Artículos</title>
 </head>
 
@@ -35,12 +35,15 @@
                     <input type="text" class="form-control" id="modelo" name="modelo" required>
                 </div>
 
+                <!-- Select dinámico -->
                 <label for="categoria" class="form-label">Categoría</label>                
-                <select class="form-select" aria-label="Default select example" name="categoria" id="categoria" required>                   
-                    <option selected value="0">Electrónica</option>
-                    <option value="1">Almacenamiento</option>
-                    <option value="2">Portatiles</option>
-                    <option value="3">Accesorios</option>
+                <select class="form-select" aria-label="Default select example" name="categoria_id" id="categoria_id" required>                   
+                    <option selected disabled>Seleccione una categoría</option>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria['id']?>">
+                            <?=$categoria['nombre']?>
+                        </option>
+                    <?php endforeach ?>
                 </select>
                 <div class="mb-3">
                     <label for="unidades" class="form-label">Unidades</label>
@@ -51,8 +54,8 @@
                     <input type="float" class="form-control" id="precio" name="precio" step="0.01" required>
                 </div>
                 
-                <a role="button" class="btn btn-secondary" href="index.php">Cancelar</a>            <!-- Para el botón de volver usamos la etiqueta <a> (en lugar de <button>) y enlazamos la vista principal-->
-                <button type="reset" class="btn btn-secondary">Reset</button>
+                <a role="button" class="btn btn-secondary" href="index.php" onclick="return confirm('¿Estás seguro de que quieres volver?')">Cancelar</a>            <!-- Para el botón de volver usamos la etiqueta <a> (en lugar de <button>) y enlazamos la vista principal-->
+                <button type="reset" class="btn btn-secondary"  onclick="return confirm('¿Estás seguro de que quieres resetear?')">Reset</button>
                 <button type="submit" class="btn btn-primary">Añadir</button>
             </form>
         </main>
@@ -62,7 +65,7 @@
     </div>
 
     <!-- JavaScript Bootstrap 5.3.8 -->
-    <?php require_once "partials/jsbootstrap.partial.php"; ?>
+    <?php require_once "layouts/jsbootstrap.layout.php"; ?>
 </body>
 
 </html>
