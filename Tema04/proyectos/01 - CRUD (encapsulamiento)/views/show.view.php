@@ -17,43 +17,43 @@
         <!-- Contenido principal -->
             <?php require_once "partials/menu.partial.php"; ?>
 
-            <form action="" method="GET">
+            <form action="create.php" method="POST">
                 <div class="mb-3">
                     <label for="id" class="form-label">Id</label>
-                    <input type="number" class="form-control" id="id" name="id" value="<?=$articulo['id']?>" readonly>
+                    <input type="number" class="form-control" id="id" name="id" value="<?= $articulo->get_id() ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?=$articulo['descripcion']?>" readonly>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?= $articulo->get_descripcion() ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="modelo" class="form-label">Modelo</label>
-                    <input type="text" class="form-control" id="modelo" name="modelo" value="<?=$articulo['modelo']?>">
+                    <input type="text" class="form-control" id="modelo" name="modelo" value="<?= $articulo->get_modelo() ?>" readonly>
                 </div>
 
-                <label for="categoria" class="form-label">Categoría</label>                
-                <select class="form-select" aria-label="Default select example" name="categoria_id" id="categoria_id" value="<?=htmlspecialchars($articulo['categoria'])?>" readonly>                 
-                    <option selected disabled>Seleccione una categoría</option>
-                    <?php foreach ($categorias as $categoria): ?>
-                        <option value="<?= $categoria['id']?>">
-                            <?=$categoria['nombre']?>
-                        </option>
-                    <?php endforeach ?>        
-                    <!-- <option selected value="0">Electrónica</option>
-                    <option value="1">Almacenamiento</option>
-                    <option value="2">Portatiles</option>
-                    <option value="3">Accesorios</option> -->
-                </select>
+                <!-- Select dinámico -->
+                 <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>                
+                    <input type="text" class="form-control" id="modelo" name="modelo" value="<?= $articulo->get_marca() ?>" readonly>
+                </div>
+
+                <!-- Lista de checkbox dinámica de categorías -->
+                 <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoria</label>                
+                    <input type="text" class="form-control" id="modelo" name="modelo" value="<?= implode(', ', Class_tabla_articulos::categorias_indices_a_nombres($articulo->get_categorias())) ?>" readonly>
+                 </div>
+
                 <div class="mb-3">
                     <label for="unidades" class="form-label">Unidades</label>
-                    <input type="number" class="form-control" id="unidades" name="unidades" value="<?=$articulo['unidades']?>" readonly>
+                    <input type="number" class="form-control" id="unidades" name="unidades" value="<?= $articulo->get_unidades() ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="precio" class="form-label">Precio</label>
-                    <input type="float" class="form-control" id="precio" name="precio" step="0.01" value="<?=$articulo['precio']?>" readonly>
+                    <input type="float" class="form-control" id="precio" name="precio" step="0.01" value="<?= $articulo->get_precio() ?>" readonly>
                 </div>
                 
-                <a role="button" class="btn btn-secondary" href="index.php">Volver</a>            <!-- Para el botón de volver usamos la etiqueta <a> (en lugar de <button>) y enlazamos la vista principal-->
+                <a role="button" class="btn btn-secondary" href="index.php">Volver</a> 
+
             </form>
         </main>
 
