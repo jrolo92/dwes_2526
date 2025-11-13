@@ -62,6 +62,11 @@
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Total películas:<?= count($articulos) ?></td>
+                    </tr>
+                </tfoot>
             </table>
         </main>
 

@@ -72,7 +72,7 @@
             $articulo2 = new Class_articulo(2, "Teléfono móvil", "P456", 5, [1], 15, 999.99);
             $articulo3 = new Class_articulo(3, "Portátil Gaming", "G789", 1, [2, 6], 5, 1299.99);
             $articulo4 = new Class_articulo(4, "Cámara réflex", "C101", 2, [7, 8], 8, 599.99);
-            $articulo5 = new Class_articulo(4, "Tablet HD", "T012", 6, [3, 8], 20, 499.99);
+            $articulo5 = new Class_articulo(5, "Tablet HD", "T012", 6, [3, 8], 20, 499.99);
 
             // Añadir los nuevos objetos a la tabla de artículos:
             $this->articulos[] = $articulo1;
@@ -109,6 +109,53 @@
         
             public function create(Class_articulo $articulo){
                 $this->articulos[] = $articulo;
+            }
+
+            /*
+                método: get_indice_from_id()
+                descripción: obtiene el ñindice del array en el que se encuentra un artículo a partir del id
+                parámetros: id del artículo
+                retorno: indice del artículo en un array
+            */
+            public function get_indice_from_id($id_articulo){
+                foreach($this->articulos as $indice => $articulo){
+                    // Como en cada vuelta lo que hay es un objeto($articulo) usamos el get_id()
+                    if ($articulo->get_id() == $id_articulo){
+                        return $indice;
+                    }
+                }
+                return null;
+            }
+
+            /*
+                método: get_articulo_from_indice()
+                descripción: obtiene un objeto de la clase artículo a partir del índice del array de tabla_articulos
+                parámetros: indice en el que se encuentra el articulo
+                retorno: objeto de la clase artículo
+            */
+            public function get_articulo_from_indice($indice){
+                return $this->articulos[$indice];       // $this->articulos es un array de objetos --> Entonces devolverá el objeto que coincida con el índice que necesitamos
+            }
+
+            /*
+                método: update()
+                descripción: actualiza los detalles de un artículo en la tabla partir del indice en el que se encuentra dicho artículo
+                parámetros: objeto de la clase articulo / indice del articulo.
+            */
+                // Cuando vas a pasar un objeto de una clase es bueno especificar a qué clase corresponde.
+                public function update(Class_articulo $articulo, $indice){
+                    $this->articulos[$indice] = $articulo;
+                }
+
+            /*
+                método: delete()
+                decripcion: elimina el artículo del array a partir del indice en el eqe se encuentra y reindexa el array
+                parámetros: indice del array en el que se encuentra el articulo a eliminar.
+                
+            */
+            public function delete($indice){
+                unset($this->articulos[$indice]);
+                $this->articulos = array_values($this->articulos);
             }
     }
 ?>

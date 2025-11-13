@@ -10,9 +10,9 @@
     require_once "class/tabla_articulos.class.php";
 
     // 2. Incluimos el modelo:
-    require_once "models/edit.model.php";
+    require_once "models/update.model.php";
 
     // 3. Incluimos la vista:
-    require_once "views/edit.view.php";
+    require_once "views/index.view.php";
     
 ?>
