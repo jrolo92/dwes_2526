@@ -1,4 +1,4 @@
-<?php
+    <?php
 
     /*
          Proyecto 4.1: Definir una clase Articulo con propiedades id, descripción, modelo, marca, categoría, unidades y precio.

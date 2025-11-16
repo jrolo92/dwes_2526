@@ -1,29 +1,29 @@
 <?php 
     /*
          Proyecto 4.1: Definir una clase Tabla_articulos que gestione una colección de objetos Articulo.
-                        Con encapsulamiento.
+                        SIN encapsulamiento.
          Autor: Javier Rodríguez
-         Fecha: 11/11/25
+         Fecha: 113/11/25
      */
 
     class Class_tabla_articulos {
         // Atributo privado:
-        private $articulos;
+        public $articulos;
 
         // Constructor
         public function __construct(){
             $this->articulos = [];              // Cada vez que creemos una instancia de Tabla_articulos, nos crea un array vacío.
         }
-        // Getter
-        public function get_articulos(){
-            return $this->articulos; 
-        }
+        // // Getter y setter (No nos van a hacer falta)
+        // public function get_articulos(){
+        //     return $this->articulos; 
+        // }
 
-        // Setter
-        public function set_articulos($articulo){
-            $this->articulos = $articulo; 
-            return $this;
-        }
+
+        // public function set_articulos($articulo){
+        //     $this->articulos = $articulo; 
+        //     return $this;
+        // }
 
         /* 
             Método para obtener el array de marcas únicas de los articulos.
@@ -120,7 +120,7 @@
             public function get_indice_from_id($id_articulo){
                 foreach($this->articulos as $indice => $articulo){
                     // Como en cada vuelta lo que hay es un objeto($articulo) usamos el get_id()
-                    if ($articulo->get_id() == $id_articulo){
+                    if ($articulo->id == $id_articulo){
                         return $indice;
                     }
                 }
