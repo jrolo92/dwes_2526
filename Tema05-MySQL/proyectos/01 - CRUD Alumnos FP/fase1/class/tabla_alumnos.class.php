@@ -18,7 +18,7 @@
             metodo: get_alumnos()
             descripción: extrae los alumnos de la tabla alumno
             parámetros: ninguno.
-            retorno: objeto de la clase mysqli_stmt (IMPORTANTE)
+            retorno: objeto de la clase mysqli_result (IMPORTANTE)
         */
         public function get_alumnos(){
             try{
@@ -37,6 +37,7 @@
                 ;
 
                 // Prepare:
+                // Crear un objeto de la clase mysqli_stmt
                 $stmt = $this->mysqli->prepare($sql);
 
                 // No necesita vincular parámetros
@@ -44,16 +45,55 @@
                 // Ejecuto el comando
                 $stmt->execute();
 
-                // Devuelve un objeto de la clase mysqli_stmt
+                // Devuelve un objeto de la clase mysqli_result
                 return $stmt->get_result();
 
             } catch (mysqli_sql_exception $e){
+                // Como este código va a ser el mismo para todas las estructuras vamos a hacer un partial
                 // Si hay algun error se mostrarán los detalles siguientes:
-                echo 'ERROR DE BASE DE DATOS' . '<br>';
-                echo 'Mensaje: ' . $e->getMessage() . '<br>';
-                echo 'Código de error: ' . $e->getCode() . '<br>';
-                echo 'Fichero: ' . $e->getFile() . '<br>';
-                echo 'Línea: ' . $e->getLine() . '<br>';
+                require_once 'views/partials/errorDB.partial.php';
+
+                // Si hay algún error se va a parar la ejecución:
+                exit();
+            }
+        }
+
+        /*
+            metodo: get_cursos()
+            descripción: extrae los curso de la base de datos
+            parámetros: ninguno.
+            retorno: array asociativo con los cursos (id : nombreCorto)
+        */
+        public function get_cursos(){
+            try{
+                $sql = "SELECT 
+                            id,
+                            nombreCorto as curso
+                        FROM cursos
+                        ORDER BY 1"
+                ;
+
+                // Prepare:
+                // Crear un objeto de la clase mysqli_stmt
+                $stmt = $this->mysqli->prepare($sql);
+
+                // No necesita vincular parámetros
+
+                // Ejecuto el comando
+                $stmt->execute();
+
+                // Crea un objeto de la clase mysqli_result
+                $cursos = $stmt->get_result();
+
+                /* Devuelve un array asociativo (se usa fetch_all porque los cursos van a ser siempre
+                 los mismos y no se van a añadir nuevos como es el caso de los alumnos)*/
+                return $cursos->fetch_all(MYSQLI_ASSOC);
+
+            } catch (mysqli_sql_exception $e){
+                // Como este código va a ser el mismo para todas las estructuras vamos a hacer un partial
+                // Si hay algun error se mostrarán los detalles siguientes:
+                require_once 'views/partials/errorDB.partial.php';
+                
                 // Si hay algún error se va a parar la ejecución:
                 exit();
             }
