@@ -7,7 +7,7 @@
             - Array de categorías ($marcas): lista de marcas disponibles para asignar a un artículo.
     */
         
-    // Incluir el arra de marcas:
+    // Incluir el array de marcas:
     $marcas = Class_tabla_articulos::get_marcas();
 
     // Incluir el array de categorías:

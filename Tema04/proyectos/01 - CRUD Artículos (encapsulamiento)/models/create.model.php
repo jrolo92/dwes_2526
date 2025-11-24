@@ -1,4 +1,4 @@
-<?php 
+//<?php 
     /*
         modelo:create.model.php 
         decripción: obtiene los detalles del formulario y añade nuevo artículo.
