@@ -133,7 +133,6 @@ class Class_tabla_corredores extends Class_conexion
             return $clubs->fetch_all(MYSQLI_ASSOC);
 
         } catch (mysqli_sql_exception $e) {
-            // Como este código va a ser el mismo para todas las estructuras vamos a hacer un partial
             // Si hay algun error se mostrarán los detalles siguientes:
             require_once 'views/partials/errorDB.partial.php';
 
@@ -145,5 +144,65 @@ class Class_tabla_corredores extends Class_conexion
                 $stmt->close();
             }
         }
+    }
+
+    /*
+        metodo: create()
+        descripción: añade un nuevo corredor a la tabla corredores
+        parámetros: un objeto de la Class_corredor
+        retorno: ninguno
+    */
+    public function create(Class_corredor $corredor){
+        try{
+            // Sentencia SQL
+            $sql = "INSERT INTO 
+                            corredores (
+                                nombre, 
+                                apellidos,
+                                ciudad,
+                                email,
+                                dni,
+                                fechaNacimiento,
+                                sexo,
+                                id_categoria,
+                                id_club
+                            )
+                        VALUES (?,?,?,?,?,?,?,?,?)
+            ";
+
+            // Prepare
+            $stmt = $this->mysqli->prepare();
+
+            // Vinculamos parámetros
+            $stmt->bind_param(
+                'sssssssii',
+                $corredor->nombre,
+                $corredor->apellidos,
+                $corredor->ciudad,
+                $corredor->email,
+                $corredor->dni,
+                $corredor->fecha_nac,
+                $corredor->sexo,
+                $corredor->categoria_id,
+                $corredor->club_id
+            );
+
+            // Ejecutamos la consulta:
+            $stmt->execute();
+        
+        } catch (mysqli_sql_exception $e){
+            // Si hay algun error se mostrarán los detalles siguientes:
+            require_once 'views/partials/errorDB.partial.php';
+
+            // Si hay algún error se va a parar la ejecución:
+            exit();
+        } finally {
+            // Liberamos la sentencia preparada
+            if (isset($stmt)) {
+                $stmt->close();
+            }
+        }
+        
+
     }
 }

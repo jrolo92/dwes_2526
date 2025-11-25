@@ -33,8 +33,10 @@
     $conexion = new Class_tabla_corredores();
 
     // 4. Ejecutamos nuestra función create():
-
+    $conexion->create($nuevo_corredor);
 
     // 5. Cargamos los datos: corredores, categorias y clubs
-    
+    $conexion->get_corredores();
+    $conexion->get_categorias();
+    $conexion->get_clubs();
  ?>
