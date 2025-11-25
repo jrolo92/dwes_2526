@@ -295,5 +295,58 @@ class Class_tabla_alumnos extends Class_conexion
         }
     }
 
+    /*
+        método: order()
+        descripción: ordena la tabla de alumnos a partir de un criterio de ordenación
+        parámetros: el criterio por el que se va a ordenar
+        retorno: ninguno.
+    */
+    public function order($criterio){
+        try{
+            // Consulta preparada:
+            $sql = "SELECT 
+                        alumnos.id,
+                        concat_ws(', ', alumnos.apellidos, alumnos.nombre) as alumno,
+                        alumnos.email,
+                        alumnos.nacionalidad,
+                        alumnos.dni,
+                        timestampdiff(YEAR, alumnos.fecha_nac, now()) as edad,
+                        cursos.nombreCorto as curso
+                    FROM alumnos INNER JOIN cursos
+                    ON alumnos.curso_id = cursos.id
+                    ORDER BY ?
+            ";
+
+            // Prepare:
+            $stmt = $this->mysqli->prepare($sql);
+
+            // Vincular parametros:
+            $stmt->bind_param(
+                'i',
+                $criterio
+            );
+
+            // Ejecutamos la consulta:
+            $stmt->execute();
+
+            // Devolvemos un objeto de mysqli_result
+            return $stmt->get_result();
+
+        } catch (mysqli_sql_exception $e){
+            // Como este código va a ser el mismo para todas las estructuras vamos a hacer un partial
+            // Si hay algun error se mostrarán los detalles siguientes:
+            require_once 'views/partials/errorDB.partial.php';
+
+            // Si hay algún error se va a parar la ejecución:
+            exit();
+
+        } finally {
+            // Liberamos la sentencia preparada
+            if (isset($stmt)){
+                $stmt->close();
+            }
+        }
+    }
+
     
 }
