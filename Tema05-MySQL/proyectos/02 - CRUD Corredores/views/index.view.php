@@ -65,7 +65,7 @@
                                 </a>  
                             </td>
                         </tr>
-                    <?php endwhile; ?>
+                    <?php endwhile; ?>   
                 </tbody>
                 <tfoot>
                     <tr>
@@ -73,6 +73,9 @@
                     </tr>
                 </tfoot>
             </table>
+            <br>
+            <br>
+            <br>
         </main>
 
         <!-- Pie de página -->

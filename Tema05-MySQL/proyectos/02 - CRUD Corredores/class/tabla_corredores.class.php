@@ -171,7 +171,7 @@ class Class_tabla_corredores extends Class_conexion
             ";
 
             // Prepare
-            $stmt = $this->mysqli->prepare();
+            $stmt = $this->mysqli->prepare($sql);
 
             // Vinculamos parámetros
             $stmt->bind_param(

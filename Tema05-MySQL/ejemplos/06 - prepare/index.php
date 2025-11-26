@@ -41,7 +41,7 @@
         //Ejecutamos la consulta:
         $stmt->execute();
 
-        //Devolvemos los resultados.
+        //Devolvemos los resultados en un array completo.
         $resultados = $stmt->fetch_all();
 
         

@@ -9,7 +9,7 @@
     $apellidos = $_POST['apellidos'] ?? null;
     $ciudad = $_POST['ciudad'] ?? null;
     $email = $_POST['email'] ?? null;
-    $dni = $POST['dni'] ?? null;
+    $dni = $_POST['dni'] ?? null;
     $fecha_nac = $_POST['fecha_nac'] ?? null;
     $sexo = $_POST['sexo'] ?? null;
     $categoria = $_POST['categoria'] ?? null;
@@ -36,7 +36,7 @@
     $conexion->create($nuevo_corredor);
 
     // 5. Cargamos los datos: corredores, categorias y clubs
-    $conexion->get_corredores();
-    $conexion->get_categorias();
-    $conexion->get_clubs();
+    $corredores = $conexion->get_corredores();
+    $categorias = $conexion->get_categorias();
+    $clubs = $conexion->get_clubs();
  ?>
